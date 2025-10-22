@@ -3,7 +3,7 @@
 #include "lpc17xx_adc.h"
 #include "lpc17xx_dac.h"
 #include "lpc17xx_gpio.h"
-#include "lpc17xx_eint.h"
+#include "lpc17xx_exti.h"
 
 int main() {
 
