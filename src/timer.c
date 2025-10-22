@@ -9,7 +9,7 @@ void config_timer_0(void) {
     TIM_MATCHCFG_Type match0_cfg;
 
     timer0_cfg.prescaleOption = TIM_USVAL;
-    timer0_cfg.prescaleValue = 1000; // 1ms
+    timer0_cfg.prescaleValue = 1000; // 1us
 
     match0_cfg.matchChannel = 0;
     match0_cfg.intOnMatch = ENABLE;
@@ -20,7 +20,6 @@ void config_timer_0(void) {
 
     TIM_Init(LPC_TIM0, TIM_TIMER_MODE, &timer0_cfg);
     TIM_ConfigMatch(LPC_TIM0, &match0_cfg);
-    
 }
 
 /*
