@@ -1,5 +1,6 @@
 #include "lpc17xx_exti.h"
 #include "lpc17xx_pinsel.h"
+#include "exti.h"
 
 void config_eint0(void) {
     PINSEL_CFG_Type eint0_pin = {0};

@@ -1,7 +1,5 @@
 #include "lpc17xx_timer.h"
-
-#define TIMER0_MATCH_VALUE 10
-#define TIMER1_MATCH_VALUE 50
+#include "timer.h"
 
 /*
  * Refreshes display and updates pong and ball positions
@@ -11,7 +9,7 @@ void config_timer_0(void) {
     TIM_MATCHCFG_Type match0_cfg;
 
     timer0_cfg.prescaleOption = TIM_USVAL;
-    timer0_cfg.prescaleValue = 1; // 1us
+    timer0_cfg.prescaleValue = 1000; // 1ms
 
     match0_cfg.matchChannel = 0;
     match0_cfg.intOnMatch = ENABLE;
@@ -44,4 +42,8 @@ void config_timer_1(void) {
 
     TIM_Init(LPC_TIM1, TIM_TIMER_MODE, &timer1_cfg);
     TIM_ConfigMatch(LPC_TIM1, &match0_cfg);
+}
+
+void TIMER0_IRQHandler(void) {
+
 }

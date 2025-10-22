@@ -1,6 +1,5 @@
 #include "lpc17xx_dac.h"
-
-#define DAC_OUTPUT (uint32_t)(1 << 26)
+#include "dac.h"
 
 void config_dac(void) {
     DAC_Init();
