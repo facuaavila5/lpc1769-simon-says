@@ -1,1 +1,1 @@
-# proyecto-ping-pong-digital3
+# proyecto-note-generator-digital3
