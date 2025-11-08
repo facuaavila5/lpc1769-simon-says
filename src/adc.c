@@ -1,5 +1,6 @@
-#include "lpc17xx_adc.h"
 #include "adc.h"
+#include "timer.h"
+#include "dma.h"
 
 const uint16_t factor[] = {1/2, 1, 2};
 
@@ -11,19 +12,16 @@ void config_adc(void) {
 }
 
 void ADC_IRQHandler(void) {
-    uint16_t result;
-    uint16_t *adc_ptr;
-
     if(ADC_ChannelGetStatus(ADC_CHANNEL_0, ADC_DATA_DONE)) {
-        adc_ptr = (uint16_t *)ADC_0_RESULT_ADDRESS;
-        *adc_ptr = calc_frequency(ADC_ChannelGetData(ADC_CHANNEL_0));
+        uint16_t result = ADC_ChannelGetData(ADC_CHANNEL_0);
+        uint16_t *adc_ptr = (uint16_t *)ADC_0_RESULT_ADDRESS;
+        *adc_ptr = set_amplitude(result);
+
+        TIM_Cmd(LPC_TIM0, ENABLE);
+        GPDMA_ChannelCmd(GPDMA_CHANNEL_0, ENABLE);
     }
 }
 
-uint16_t calc_frequency(uint16_t conversion_data) {
-    return factor[conversion_data / 512];
-}
-
-uint16_t calc_duty_cycle(uint16_t conversion_data) {
-    
+uint16_t set_amplitude(uint16_t conversion_result) {
+    return (uint16_t)1; // change 512
 }

@@ -13,6 +13,7 @@ release/
 .cproject
 
 # SDK y drivers locales
+CMSISv2p00_LPC17xx/
 Drivers/
 board/
 linker/

@@ -1,4 +1,3 @@
-#include "lpc17xx_dac.h"
 #include "dac.h"
 
 #define SIN_VALUES_ADDRESS (uint32_t ) 0x2007C020 
@@ -40,16 +39,14 @@ void config_dac(void) {
 
 }
  
-void load_dac_values(uint16_t value) {
+void load_dac_values(void) {
     uint16_t *puntero_dac = (uint16_t *) SIN_VALUES_ADDRESS;
     // puntero a la direccion de memoria del banco 0 
 
     for (uint8_t i = 0 ; i < DAC_ARRAY_SIZE; i++) {
             *puntero_dac = onda_sin[i];
-            puntero_dac ++; 
-
+            puntero_dac++;
     }
-
 }
 
 void set_frequency (void) {

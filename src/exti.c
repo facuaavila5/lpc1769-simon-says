@@ -1,13 +1,12 @@
-#include "lpc17xx_exti.h"
 #include "lpc17xx_pinsel.h"
 #include "exti.h"
+#include "lpc17xx_adc.h"
 
 void config_eint0(void) {
     PINSEL_CFG_Type eint0_pin = {0};
     EXTI_CFG_Type eint0_cfg = {0};
     
     //Configuracion de EINT0 para que suene la nota a adivinar  
-
     eint0_pin.portNum = PINSEL_PORT_2; 
     eint0_pin.pinNum = PINSEL_PIN_10;
     eint0_pin.funcNum = PINSEL_FUNC_1;
@@ -19,5 +18,9 @@ void config_eint0(void) {
     eint0_cfg.polarity = EXTI_FALLING_EDGE;
     EXTI_Init();
     EXTI_ConfigEnable(&eint0_cfg); // Config or ConfigEnable??
-    // Nvic?
+}
+
+void EINT0_IRQHandler(void) {
+    ADC_StartCmd(ADC_START_NOW);
+    EXTI_ClearFlag(EXTI_EINT0);
 }

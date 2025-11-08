@@ -1,13 +1,14 @@
-#include "lpc17xx_gpdma.h"
 #include "dma.h"
+#include "lpc17xx_dac.h"
 
 #define TRANSFER_SIZE 100
-#define SIN_VALUES_ADDRESS (uint32_t ) 0x2007C020 
-#define DACR_ADDRESS (uint32_t ) 0x4008C000     
+#define SIN_VALUES_ADDRESS (uint32_t)0x2007C020 
+#define DACR_ADDRESS (uint32_t)0x4008C000     
+
+GPDMA_LLI_Type lli_dac;
 
 void config_dma(void) {
    GPDMA_Channel_CFG_Type dac_dma;
-   GPDMA_LLI_Type lli_dac;
 
     dac_dma.channelNum = GPDMA_CHANNEL_0; //Canal 0 para el dac 
     dac_dma.transferSize =  TRANSFER_SIZE;
@@ -24,5 +25,9 @@ void config_dma(void) {
                        
     GPDMA_Init();
     GPDMA_Setup(&dac_dma);
-    
+}
+
+void start_dac_dma(void) {
+    DAC_SetDMATimeOut(567); // + Operacion para pasarlo a ticks
+    GPDMA_ChannelCmd(GPDMA_CHANNEL_0, ENABLE);
 }
