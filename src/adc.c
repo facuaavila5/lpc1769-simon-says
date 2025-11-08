@@ -8,3 +8,4 @@ void config_adc(void) {
     ADC_BurstCmd(ENABLE);
     // Interruption or DMA?
 }
+
