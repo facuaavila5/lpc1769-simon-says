@@ -10,5 +10,6 @@
 
 // function prototypes
 void config_adc(void);
+uint16_t set_amplitude(uint16_t conversion_result);
 
 #endif

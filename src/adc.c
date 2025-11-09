@@ -18,7 +18,7 @@ void ADC_IRQHandler(void) {
         *adc_ptr = set_amplitude(result);
 
         TIM_Cmd(LPC_TIM0, ENABLE);
-        GPDMA_ChannelCmd(GPDMA_CHANNEL_0, ENABLE);
+        start_dac_dma();
     }
 }
 

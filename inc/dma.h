@@ -5,5 +5,6 @@
 
 // function prototypes
 void config_dma(void);
+void start_dac_dma(void);
 
 #endif
