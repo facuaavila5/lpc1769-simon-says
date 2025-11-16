@@ -1,14 +1,27 @@
-#include "lpc17xx_gpdma.h"
-#include "lpc17xx_timer.h"
-#include "lpc17xx_adc.h"
-#include "lpc17xx_dac.h"
-#include "lpc17xx_gpio.h"
-#include "lpc17xx_eint.h"
+#include "dma.h"
+#include "timer.h"
+#include "adc.h"
+#include "dac.h"
+#include "exti.h"
+#include "uart.h"
+#include <stdio.h>
+
 
 int main() {
 
-    while(1) {
+    config_eint0();
+    config_timer_0();
+    config_timer_1();
+    config_adc();
+    config_dac();
+    configUART();
+    config_dma();
+    generate_sin();
 
+    while(1) {
+    	__WFI();
     }
+
     return 0;
 }
+
