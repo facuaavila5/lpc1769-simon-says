@@ -33,3 +33,13 @@ The game's logic (generating sequences, checking user input) is handled in C. Th
 ## 📺 Demo Video
 
 **[Click here to watch the project demo on YouTube!](https://www.youtube.com/shorts/m86qcenKUOQ)**
+
+## 👥 Authors
+
+* **Ezequiel Marredo**
+* **Candela Benavides**
+* **Facundo Avila**
+
+* ## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
