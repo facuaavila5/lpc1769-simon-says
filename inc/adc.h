@@ -15,9 +15,11 @@ extern volatile uint16_t index_sequence;
 
 extern volatile uint16_t index_sequence_uart;
 extern volatile uint16_t secuencia_indices[20];
-// function prototypes
 
+// function prototypes
 void config_adc(void);
 void turn_on_dac(uint16_t timeout);
 uint16_t calc_timeout(uint16_t conversion_data);
+
 #endif
+

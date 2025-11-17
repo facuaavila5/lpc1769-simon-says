@@ -6,7 +6,6 @@
 #include "uart.h"
 #include <stdio.h>
 
-
 int main() {
 
     config_eint0();
