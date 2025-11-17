@@ -40,6 +40,6 @@ The game's logic (generating sequences, checking user input) is handled in C. Th
 * **Candela Benavides**
 * **Facundo Avila**
 
-* ## 📄 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
